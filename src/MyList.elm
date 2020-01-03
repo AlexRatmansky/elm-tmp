@@ -1,4 +1,8 @@
-module MyList exposing (..)
+module MyList exposing
+    ( MyList(..)
+    , isEmpty
+    , sum
+    )
 
 
 type MyList a

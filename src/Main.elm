@@ -1,9 +1,35 @@
 module Main exposing (main)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Browser
+import Html exposing (Html, div, h1, p, strong, text)
+import Html.Attributes exposing (class)
 
 
+type alias Model =
+    String
+
+
+initialModel : Model
+initialModel =
+    "0"
+
+
+type Msg
+    = Increment
+    | Decrement
+
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        Increment ->
+            model ++ "1"
+
+        Decrement ->
+            model ++ "0"
+
+
+view : a -> Html msg
 view model =
     div [ class "jumbotron" ]
         [ h1 [] [ text "Welcome to Dunder Mifflin!" ]
@@ -20,5 +46,10 @@ view model =
         ]
 
 
+main : Program () Model Msg
 main =
-    view "dummy model"
+    Browser.sandbox
+        { init = initialModel
+        , view = view
+        , update = update
+        }
