@@ -1,4 +1,4 @@
-module HttpExamples exposing (Model)
+module HttpExamples exposing (main)
 
 import Browser
 import Html exposing (..)
